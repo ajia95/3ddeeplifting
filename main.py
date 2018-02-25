@@ -3,20 +3,20 @@ import train as tr
 import test as ts
 import network as net
 import testImg as ti
+import evalGraph as ev
 
 #no. iterations = no. batches * no. epochs
 #Iterations is the number of batches needed to complete one epoch.
 
 #dataset = batchsize * itertions
-#no. of iterations = 10
+
 learning_rate = 0.01
-epochs = 50 #can pick anything?
-#iterations = 10
+epochs = 30
 batch_size = 50
 trainSize = 4000
 testSize = 1000
-#batch_size = int(dataSize/iterations) #100
-#total_batch = int(dataSize / batch_size) #total 10 batches
+#batch_size = int(dataSize/iterations) 
+#total_batch = int(dataSize / batch_size) 
 with tf.name_scope("inputs") as scope:
 	x = tf.placeholder(shape=(None,20), dtype=tf.float32)
 	y = tf.placeholder(shape=(None,10), dtype=tf.float32)
@@ -24,6 +24,7 @@ with tf.name_scope("inputs") as scope:
 with tf.name_scope("Layers") as scope:
 	netOut = net.mlp(x)
 
+#run trainiing - comment out if just want to test
 #tr.train(learning_rate, epochs, batch_size, trainSize,x,y, netOut)
 
 saver = tf.train.Saver()
@@ -35,8 +36,15 @@ with tf.Session() as sess:
   saver.restore(sess, "/Users/User/project/model/model.ckpt")
   print("Model restored.")
 
-  #ts.test(netOut,x,y,sess, testSize)
-  ti.test(netOut,x,y,sess)
+  #run test on synthetic data
+  ts.test(netOut,x,y,sess, testSize,0)
+
+  #run test on real images
+  #ti.test(netOut,x,sess,0)
+
+  #ev.errorGraph(netOut,x,y,sess, testSize)
+  #ev.rmseGraph(netOut,x,y,sess, testSize)
+
 
 
 

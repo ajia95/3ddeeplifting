@@ -68,12 +68,15 @@ def drawChair(chair):
 	ax.set_xlim3d(-200, 200)
 	ax.set_ylim3d(-200, 200)
 	ax.set_zlim3d(-200, 200)
+
 	ax.plot([h[0],i[0],j[0],g[0],h[0]],[h[1],i[1],j[1],g[1],h[1]],[h[2],i[2],j[2],g[2],h[2]], color='r')
-	ax.plot([h[0],e[0],f[0],g[0]],[h[1],e[1],f[1],g[1]],[h[2],e[2],f[2],g[2]], color='r')
-	ax.plot([d[0],h[0]],[d[1],h[1]],[d[2],h[2]], color='r')
-	ax.plot([a[0],e[0]],[a[1],e[1]],[a[2],e[2]], color='r')
-	ax.plot([c[0],g[0]],[c[1],g[1]],[c[2],g[2]], color='r')
-	ax.plot([b[0],f[0]],[b[1],f[1]],[b[2],f[2]], color='r')
+	ax.plot([h[0],e[0],f[0],g[0]],[h[1],e[1],f[1],g[1]],[h[2],e[2],f[2],g[2]], color='b')
+	ax.plot([d[0],h[0]],[d[1],h[1]],[d[2],h[2]], color='g')
+	ax.plot([a[0],e[0]],[a[1],e[1]],[a[2],e[2]], color='y')
+	ax.plot([c[0],g[0]],[c[1],g[1]],[c[2],g[2]], color='c')
+	ax.plot([b[0],f[0]],[b[1],f[1]],[b[2],f[2]], color='m')
+
+
 
 	plt.show()
 	return;

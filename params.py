@@ -1,6 +1,9 @@
 import numpy as np
 import random
-#unit - cm
+#unit - div by 4 to get dimensions in cm
+
+#chair described here has width = 200, upper height 200 and lower height 200
+#normal chairs have seat height of about 50cm
 
 
 bases = np.array([[-100,-200,100,100,-200,100,100,-200,-100,-100,-200,-100,-100,0,100,100,0,100,100,0,-100,-100,0,-100,-100,200,-100,100,200,-100],
